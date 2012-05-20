@@ -2,3 +2,10 @@ h1. Source Notes
 
 A modified version of "Rails":https://github.com/rails/rails SourceAnnotationExtractor.
 Hopefully to be a bit more generic and reusable.
+
+h2. TODOs
+
+- Add some instructions
+- Add tests
+- Rake-ify
+- Gemify
