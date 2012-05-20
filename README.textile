@@ -3,6 +3,30 @@ h1. Source Notes
 A modified version of "Rails":https://github.com/rails/rails SourceAnnotationExtractor.
 Hopefully to be a bit more generic and reusable.
 
+h2. Installation
+
+Add this line to your application's Gemfile:
+
+  @gem 'source_notes'@
+
+And then execute:
+
+  @bundle@
+
+Or install it yourself as:
+
+  @gem install source_notes@
+
+h2. Usage
+
+h2. Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Added some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
+
 h2. TODOs
 
 - Add some instructions
