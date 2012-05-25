@@ -31,7 +31,7 @@ module SourceNotes
     #
     # This class method is the single entry point for the rake tasks.
     def self.enumerate(tag, options={})
-      extractor = new(tag)
+      extractor = new(tag, options)
       extractor.display(options)
     end
 
@@ -40,6 +40,7 @@ module SourceNotes
     def initialize(tag, options = {})
       @tag = tag
       @dirs = options[:dirs] || [Dir::pwd]
+      @relative_path = options[:relative_path]
     end
 
     # Prints the mapping from filenames to annotations in +results+ ordered by filename.
@@ -47,7 +48,13 @@ module SourceNotes
     def display(options={})
       options[:indent] = find.map { |f, a| a.map(&:line) }.flatten.max.to_s.size
       find.keys.sort.each do |file|
-        puts "#{file}:"
+
+        if @relative_path
+          puts "#{Pathname.new(file).relative_path_from(Pathname.new(@relative_path))}:"
+        else
+          puts "#{file}:"
+        end
+
         find[file].each do |note|
           puts "  * #{note.to_s(options)}"
         end
