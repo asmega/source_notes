@@ -106,7 +106,7 @@ module SourceNotes
       lineno = 0
       result = File.readlines(file).inject([]) do |list, line|
         lineno += 1
-        next list unless line =~ pattern
+        next list unless line.encode('UTF-8', 'UTF-8', :invalid => :replace) =~ pattern
         list << Annotation.new(lineno, $1, $2)
       end
       result.empty? ? {} : { file => result }
